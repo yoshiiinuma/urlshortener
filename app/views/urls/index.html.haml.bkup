@@ -1,0 +1,17 @@
+.row
+%h1.col-sm-4.col-sm-offset-4 URL List
+%p.col-sm-4.col-sm-offset-4= link_to 'Generate a short URL', new_url_path
+
+- if @urls.length > 0
+  %table.table.table-striped
+    %tr
+      %th URL
+      %th Shortened
+      %th
+      %th
+    - @urls.each do |url|
+      %tr
+        %td.col-sm-4= raw url.original
+        %td.col-sm-4= raw fullpath(url.shortened)
+        %td.col-sm-1= link_to 'Show', url_path(url)
+        %td.col-sm-1= link_to 'Delete', url_path(url), method: :delete, data: { confirm: 'Are you sure?'}

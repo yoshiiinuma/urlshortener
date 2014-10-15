@@ -1,0 +1,12 @@
+.row
+  %h1.col-sm-4.col-sm-offset-4 URL Shortener
+  %p.col-sm-6.col-sm-offset-3
+    %strong Original URL:
+    = raw @url.original
+  %p.col-sm-6.col-sm-offset-3
+    %strong Shortened URL:
+    = raw fullpath(@url.shortened)
+  %p.col-sm-6.col-sm-offset-3
+    = link_to 'Show List', urls_path
+  %p.col-sm-6.col-sm-offset-3
+    = link_to 'Generate a short URL', new_url_path
